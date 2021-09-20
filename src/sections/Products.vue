@@ -15,11 +15,9 @@ import Product from "@/components/Product";
 export default {
   name: "Products",
   components: {
-    Product
-  }
+    Product,
+  },
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

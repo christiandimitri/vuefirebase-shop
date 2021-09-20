@@ -1,9 +1,19 @@
 <template>
   <section class="home">
-    <hero title="'AEC Industry Services'" hero-type="is-primary" img-src="augmented-reality.jpg" btn-one="Explore"
-          btn-two="Products"></hero>
+    <hero
+      title="'AEC Industry Services'"
+      hero-type="is-primary"
+      img-src="augmented-reality.jpg"
+      btn-one="Explore"
+      btn-two="Products"
+    ></hero>
     <products></products>
-    <hero class="mt-6" title="'Learn more about us'" img-src="about-us.jpg" btn-one="Explore Products"></hero>
+    <hero
+      class="mt-6"
+      title="'Learn more about us'"
+      img-src="about-us.jpg"
+      btn-one="Explore Products"
+    ></hero>
   </section>
 </template>
 
@@ -16,7 +26,7 @@ export default {
   name: "Home",
   components: {
     Hero,
-    Products
-  }
+    Products,
+  },
 };
 </script>
