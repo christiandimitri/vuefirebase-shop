@@ -1,7 +1,9 @@
 <template>
   <section class="home">
-    <hero></hero>
+    <hero title="'AEC Industry Services'" hero-type="is-primary" img-src="augmented-reality.jpg" btn-one="Explore"
+          btn-two="Products"></hero>
     <products></products>
+    <hero class="mt-6" title="'Learn more about us'" img-src="about-us.jpg" btn-one="Explore Products"></hero>
   </section>
 </template>
 
