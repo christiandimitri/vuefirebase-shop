@@ -1,5 +1,8 @@
 <template>
   <section class="home">
+    <div id="nav">
+      <navbar></navbar>
+    </div>
     <hero
       title="'AEC Industry Services'"
       hero-type="is-primary"
