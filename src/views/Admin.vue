@@ -44,9 +44,12 @@
                 />
               </figure>
             </div>
-            <div class="is-flex is-justify-content-center pt-5">
-              <p class="subtitle is-6 pr-1 has-text-success">●</p>
-              <p class="subtitle is-6 has-text-grey">Christian Dimitri</p>
+            <div class="login-status pt-5 has-text-centered">
+            <p class="subtitle is-6 has-text-grey mb-1">Christian Dimitri</p>
+              <div class="is-flex is-justify-content-center">
+                <p class="subtitle is-6 pr-1 has-text-success">●</p>
+                <p class="subtitle is-6 pr-1 has-text-grey">Online</p>
+              </div>
             </div>
 
             <hr class="mx-2 mt-0" style="background-color: #7a7a7a" />
