@@ -10,7 +10,7 @@
       btn-one="Explore"
       btn-two="Products"
     ></hero>
-    <products></products>
+    <products-gallery></products-gallery>
     <hero
       class="mt-6"
       title="'Learn more about us'"
@@ -23,13 +23,13 @@
 <script>
 // @ is an alias to /src
 import Hero from "@/components/Hero.vue";
-import Products from "@/sections/Products.vue";
+import ProductsGallery from "@/sections/ProductsGallery.vue";
 
 export default {
   name: "Home",
   components: {
     Hero,
-    Products,
+    ProductsGallery,
   },
 };
 </script>

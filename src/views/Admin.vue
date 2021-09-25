@@ -45,7 +45,7 @@
               </figure>
             </div>
             <div class="login-status pt-5 has-text-centered">
-            <p class="subtitle is-6 has-text-grey mb-1">Christian Dimitri</p>
+              <p class="subtitle is-6 has-text-grey mb-1">Christian Dimitri</p>
               <div class="is-flex is-justify-content-center">
                 <p class="subtitle is-6 pr-1 has-text-success">●</p>
                 <p class="subtitle is-6 pr-1 has-text-grey">Online</p>

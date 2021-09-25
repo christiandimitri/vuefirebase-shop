@@ -1,7 +1,7 @@
 <template>
   <div class="overview">
     <div class="intro">
-      <div class="columns pt-6">
+      <div class="columns pt-6 is-justify-content-center is-align-items-center">
         <div class="column">
           <h3 class="subtitle is-3">Overview Page</h3>
           <p>
@@ -12,7 +12,9 @@
           </p>
         </div>
         <div class="column">
-          <img :src="require(`@/assets/${'overview.svg'}`)" alt="" class="" />
+          <figure class="image is-3by2">
+            <img :src="require(`@/assets/${'overview.svg'}`)" alt="" class="" />
+          </figure>
         </div>
       </div>
     </div>
