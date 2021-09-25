@@ -23,6 +23,26 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: () => import("../views/Admin.vue"),
+    children: [
+      {
+        path: "overview",
+        name: "overview",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/Overview.vue"),
+      },
+      {
+        path: "products",
+        name: "products",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/Products.vue"),
+      },
+      {
+        path: "orders",
+        name: "orders",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/Orders.vue"),
+      },
+    ],
   },
 ];
 

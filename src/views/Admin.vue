@@ -62,9 +62,24 @@
 
             <b-menu class="is-custom-mobile">
               <b-menu-list label="Menu">
-                <b-menu-item icon="chart-line" label="Overview"></b-menu-item>
-                <b-menu-item label="Products" icon="boxes"></b-menu-item>
-                <b-menu-item label="Orders" icon="shopping-cart"></b-menu-item>
+                <b-menu-item
+                  icon="chart-line"
+                  label="Overview"
+                  tag="router-link"
+                  :to="{ path: '/admin/overview' }"
+                ></b-menu-item>
+                <b-menu-item
+                  label="Products"
+                  icon="boxes"
+                  tag="router-link"
+                  :to="{ path: '/admin/products' }"
+                ></b-menu-item>
+                <b-menu-item
+                  label="Orders"
+                  icon="shopping-cart"
+                  tag="router-link"
+                  :to="{ path: '/admin/orders' }"
+                ></b-menu-item>
                 <b-menu-item icon="power-off" label="Logout"></b-menu-item>
               </b-menu-list>
             </b-menu>
@@ -80,8 +95,7 @@
           </transition>
         </div>
         <div class="container">
-        <p class="title pt-6">Sidebar template</p>
-        <p class="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <router-view></router-view>
         </div>
       </section>
     </div>
