@@ -1,7 +1,7 @@
 <template>
   <section class="home">
     <div id="nav">
-      <navbar></navbar>
+      <navbar @get-started="getStarted"></navbar>
     </div>
     <hero
       title="'AEC Industry Services'"
@@ -17,6 +17,7 @@
       img-src="about-us.jpg"
       btn-one="Explore Products"
     ></hero>
+    <login :isComponentModalActive="loginTriggered"></login>
   </section>
 </template>
 
@@ -24,12 +25,24 @@
 // @ is an alias to /src
 import Hero from "@/components/Hero.vue";
 import ProductsGallery from "@/sections/ProductsGallery.vue";
+import Login from "@/components/Login.vue";
 
 export default {
   name: "Home",
+  data() {
+    return {
+      loginTriggered: false,
+    };
+  },
   components: {
     Hero,
     ProductsGallery,
+    Login,
+  },
+  methods: {
+    getStarted(value) {
+      this.loginTriggered = value;
+    },
   },
 };
 </script>

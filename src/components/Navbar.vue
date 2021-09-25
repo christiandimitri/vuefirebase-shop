@@ -17,7 +17,7 @@
     <template #end>
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button is-primary">Getting Started</a>
+          <a @click="openLogin" class="button is-primary">Getting Started</a>
         </div>
       </b-navbar-item>
     </template>
@@ -27,6 +27,15 @@
 <script>
 export default {
   name: "Navbar",
+  data() {
+    return {};
+  },
+  components: {},
+  methods: {
+    openLogin() {
+      this.$emit("get-started", true);
+    },
+  },
 };
 </script>
 
