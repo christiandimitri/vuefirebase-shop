@@ -83,7 +83,11 @@
                   tag="router-link"
                   :to="{ path: '/admin/orders' }"
                 ></b-menu-item>
-                <b-menu-item icon="power-off" label="Logout"></b-menu-item>
+                <b-menu-item
+                  @click="logout"
+                  icon="power-off"
+                  label="Logout"
+                ></b-menu-item>
               </b-menu-list>
             </b-menu>
           </div>
@@ -106,6 +110,7 @@
 </template>
 
 <script>
+import { fb } from "../firebase";
 export default {
   name: "Admin",
   data() {
@@ -117,6 +122,18 @@ export default {
       mobile: "reduce",
       reduce: false,
     };
+  },
+  methods: {
+    logout() {
+      fb.auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("/");
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    },
   },
 };
 </script>

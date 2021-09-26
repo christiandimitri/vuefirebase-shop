@@ -6,7 +6,7 @@ import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 
 // Import the functions you need from the SDKs you need
-// import initializeApp from "firebase";
+import { fb } from "./firebase";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 // internal icons
@@ -64,9 +64,13 @@ Vue.component("Navbar", require("@/components/Navbar.vue").default);
 
 Vue.config.productionTip = false;
 
-// Vue.use(initializeApp);
+let app = "";
 
-new Vue({
-  router,
-  render: (h) => h(App),
-}).$mount("#app");
+fb.auth().onAuthStateChanged(function () {
+  if (!app) {
+    new Vue({
+      router,
+      render: (h) => h(App),
+    }).$mount("#app");
+  }
+});

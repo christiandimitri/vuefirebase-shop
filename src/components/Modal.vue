@@ -22,7 +22,7 @@
 import Login from "@/components/Login.vue";
 
 export default {
-  name: "Login",
+  name: "Modal",
   porps: ["gettingStarted"],
   components: {
     Login,
