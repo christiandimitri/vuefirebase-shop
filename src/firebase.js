@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import firebase from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -13,9 +12,8 @@ const firebaseConfig = {
   storageBucket: "vue-shop-b3166.appspot.com",
   messagingSenderId: "48612541486",
   appId: "1:48612541486:web:1758ab11e5f81f454b4bbf",
-  measurementId: "G-20JPKPWZFD"
+  measurementId: "G-20JPKPWZFD",
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+firebase.initializeApp(firebaseConfig);

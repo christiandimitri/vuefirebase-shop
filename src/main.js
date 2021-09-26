@@ -6,7 +6,7 @@ import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 
 // Import the functions you need from the SDKs you need
-import initializeApp from "firebase";
+// import initializeApp from "firebase";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 // internal icons
@@ -29,7 +29,7 @@ import {
   faBoxes,
   faShoppingCart,
   faPowerOff,
-  faSearch
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -58,13 +58,13 @@ Vue.component("vue-fontawesome", FontAwesomeIcon);
 
 Vue.use(Buefy, {
   defaultIconComponent: "vue-fontawesome",
-  defaultIconPack: "fas"
+  defaultIconPack: "fas",
 });
 Vue.component("Navbar", require("@/components/Navbar.vue").default);
 
 Vue.config.productionTip = false;
-Vue.use(initializeApp);
+
 new Vue({
   router,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
