@@ -1,62 +1,119 @@
 <template>
-  <section>
-    <b-modal
-      v-model="login"
-      trap-focus
-      scroll="clip"
-      :destroy-on-hide="false"
-      aria-role="dialog"
-      aria-label="Example Modal"
-      aria-modal
-    >
-      <template #default="props">
-        <div class="box">
-          <modal-form v-bind="formProps" @close="props.close"></modal-form>
-        </div>
-      </template>
-    </b-modal>
-  </section>
+  <form action="" class="modal-form">
+    <div class="modal-card" style="width: auto; height: 100%">
+      <b-tabs position="is-centered" v-model="activeTab" type="is-boxed">
+        <b-tab-item label="Login">
+          <section class="modal-card-body">
+            <b-field label="Email">
+              <b-input
+                type="email"
+                :value="email"
+                placeholder="Your email"
+                required
+              >
+              </b-input>
+            </b-field>
+
+            <b-field label="Password">
+              <b-input
+                type="password"
+                :value="password"
+                password-reveal
+                placeholder="Your password"
+                required
+              >
+              </b-input>
+            </b-field>
+
+            <b-checkbox>Remember me</b-checkbox>
+          </section>
+        </b-tab-item>
+        <b-tab-item label="Singup">
+          <section class="modal-card-body">
+            <b-field label="Name">
+              <b-input v-model="name"></b-input>
+            </b-field>
+            <b-field
+              label="Email"
+              type="is-danger"
+              message="This email is invalid"
+            >
+              <b-input type="email" v-model="email" maxlength="30"> </b-input>
+            </b-field>
+
+            <b-field label="Password">
+              <b-input type="password" v-model="password" password-reveal>
+              </b-input>
+            </b-field>
+
+            <b-checkbox>Remember me</b-checkbox>
+          </section>
+        </b-tab-item>
+      </b-tabs>
+      <footer class="modal-card-foot">
+        <b-button label="Close" @click="$parent.close()" />
+        <b-button
+          @click="activeTab == 1 ? register() : login()"
+          :label="activeTab == 0 ? 'Signin' : 'Signup'"
+          type="is-primary"
+        />
+      </footer>
+    </div>
+  </form>
 </template>
 
 <script>
-// eslint-disable-next-line no-unused-vars
-import ModalForm from "@/components/ModalForm.vue";
-// eslint-disable-next-line no-unused-vars
-import firebase from "../firebase";
-
+import { fb } from "../firebase";
 export default {
   name: "Login",
-  porps: ["gettingStarted"],
-  components: {
-    ModalForm,
-  },
   data() {
     return {
-      formProps: {
-        name: "Christian Dimitri",
-        email: "christian.j.dimitrii@gmail.com",
-        password: "testing",
-      },
+      activeTab: 0,
+      name: null,
+      email: null,
+      password: null,
     };
   },
-  computed: {
-    login: {
-      get: function () {
-        return this.$attrs.gettingStarted;
-      },
-      set: function (newValue) {
-        this.$attrs.gettingStarted = newValue;
-        this.$emit("update:getting-started", this.$attrs.gettingStarted);
-      },
+  props: ["canCancel"],
+  methods: {
+    register() {
+      fb.auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((userCredential) => {
+          // Signed in
+          // eslint-disable-next-line no-unused-vars
+          var user = userCredential.user;
+          alert(user);
+          this.$router.replace("admin");
+          // ...
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          alert(errorCode, errorMessage);
+          // ..
+        });
     },
+    login() {},
   },
 };
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-.box {
+.animation-content.modal-content {
+  height: 70% !important;
+}
+.b-tabs .tab-content .tab-item {
+  height: 100%;
+}
+.tab-content {
   padding: 0 !important;
-  margin: 0 !important;
-  max-width: 960px;
+}
+.modal-form,
+.modal-card,
+.b-tabs,
+.tab-content {
   height: 100%;
 }
 </style>
