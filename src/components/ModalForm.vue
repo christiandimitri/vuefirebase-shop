@@ -33,17 +33,27 @@
             <b-field label="Name">
               <b-input v-model="name"></b-input>
             </b-field>
-
             <b-field
               label="Email"
               type="is-danger"
               message="This email is invalid"
             >
-              <b-input type="email" :value="email" maxlength="30"> </b-input>
+              <b-input
+                type="email"
+                v-model="email"
+                :value="email"
+                maxlength="30"
+              >
+              </b-input>
             </b-field>
 
             <b-field label="Password">
-              <b-input type="password" :value="password" password-reveal>
+              <b-input
+                type="password"
+                v-model="password"
+                :value="password"
+                password-reveal
+              >
               </b-input>
             </b-field>
 
@@ -54,6 +64,7 @@
       <footer class="modal-card-foot">
         <b-button label="Close" @click="$parent.close()" />
         <b-button
+          @click="activeTab == 1 ? register() : login()"
           :label="activeTab == 0 ? 'Signin' : 'Signup'"
           type="is-primary"
         />
@@ -63,14 +74,35 @@
 </template>
 
 <script>
+import { fb } from "../firebase";
 export default {
   name: "ModalForm",
   data() {
     return {
-      activeTab: 0,
+      activeTab: 0
     };
   },
   props: ["name", "email", "password", "canCancel"],
+  methods: {
+    register() {
+      fb.auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(userCredential => {
+          // Signed in
+          // eslint-disable-next-line no-unused-vars
+          var user = userCredential.user;
+          alert(user);
+          // ...
+        })
+        .catch(error => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          alert(errorCode, errorMessage);
+          // ..
+        });
+    },
+    login() {}
+  }
 };
 </script>
 

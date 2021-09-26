@@ -7,7 +7,7 @@
       ></navbar>
     </div>
     <hero
-      title="'AEC Industry Services'"
+      title="AEC Industry Services"
       hero-type="is-primary"
       img-src="augmented-reality.jpg"
       btn-one="Explore"
@@ -16,7 +16,7 @@
     <products-gallery></products-gallery>
     <hero
       class="mt-6"
-      title="'Learn more about us'"
+      title="Learn more about us"
       img-src="about-us.jpg"
       btn-one="Explore Products"
     ></hero>
