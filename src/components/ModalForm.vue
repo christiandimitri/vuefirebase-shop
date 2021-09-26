@@ -31,7 +31,7 @@
           <b-checkbox>Remember me</b-checkbox>
         </section>
         <footer class="modal-card-foot">
-          <b-button label="Close" @click="$emit('close')" />
+          <b-button label="Close" @click="$parent.close()" />
           <b-button label="Login" type="is-primary" />
         </footer>
       </div>

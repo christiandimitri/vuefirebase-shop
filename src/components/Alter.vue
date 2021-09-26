@@ -9,15 +9,18 @@
       aria-label="Example Modal"
       aria-modal
     >
-      <template> <modal-form v-bind="formProps"></modal-form> </template
-    ></b-modal>
+      <template #default="props">
+        <modal-form v-bind="formProps" @close="props.close"></modal-form>
+      </template>
+    </b-modal>
   </section>
 </template>
 
 <script>
 import ModalForm from "@/components/ModalForm.vue";
+
 export default {
-  name: "Login",
+  name: "Alter",
   porps: ["gettingStarted"],
   components: {
     ModalForm,
@@ -30,9 +33,13 @@ export default {
       },
     };
   },
-  mounted() {
-    console.log();
-  },
+  // watch: {
+  //   gettingStarted: function (newRequ) {
+  //     if (newRequ == false) {
+  //       this.login = newRequ;
+  //     }
+  //   }
+  // },
   computed: {
     login: {
       get: function () {
@@ -40,6 +47,7 @@ export default {
       },
       set: function (newValue) {
         this.$attrs.gettingStarted = newValue;
+        this.$emit("update:getting-started", this.$attrs.gettingStarted);
       },
     },
   },

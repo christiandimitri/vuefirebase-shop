@@ -17,7 +17,7 @@
     <template #end>
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a @click="openLogin" class="button is-primary">Getting Started</a>
+          <a @click="lunchLogin" class="button is-primary">Getting Started</a>
         </div>
       </b-navbar-item>
     </template>
@@ -27,13 +27,15 @@
 <script>
 export default {
   name: "Navbar",
+  props: ["request"],
   data() {
     return {};
   },
   components: {},
   methods: {
-    openLogin() {
-      this.$emit("get-started", true);
+    lunchLogin() {
+      this.$attrs.request = !this.$attrs.request;
+      this.$emit("update:get-started", this.$attrs.request);
     },
   },
 };

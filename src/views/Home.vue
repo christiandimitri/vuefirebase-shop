@@ -1,7 +1,10 @@
 <template>
   <section class="home">
     <div id="nav">
-      <navbar @get-started="getStarted"></navbar>
+      <navbar
+        :request="loginRequest"
+        v-bind:get-started.sync="loginRequest"
+      ></navbar>
     </div>
     <hero
       title="'AEC Industry Services'"
@@ -17,7 +20,7 @@
       img-src="about-us.jpg"
       btn-one="Explore Products"
     ></hero>
-    <login :isComponentModalActive="loginTriggered"></login>
+    <alter v-bind:gettingStarted.sync="loginRequest"></alter>
   </section>
 </template>
 
@@ -25,24 +28,26 @@
 // @ is an alias to /src
 import Hero from "@/components/Hero.vue";
 import ProductsGallery from "@/sections/ProductsGallery.vue";
-import Login from "@/components/Login.vue";
+// import Login from "@/components/Login.vue";
+import Alter from "@/components/Alter.vue";
 
 export default {
   name: "Home",
   data() {
     return {
-      loginTriggered: false,
+      loginRequest: false,
     };
   },
   components: {
     Hero,
     ProductsGallery,
-    Login,
+    // Login,
+    Alter,
   },
   methods: {
-    getStarted(value) {
-      this.loginTriggered = value;
-    },
+    // getStarted(value) {
+    //   this.loginResquest = value;
+    // }
   },
 };
 </script>
