@@ -23,23 +23,16 @@ export default {
   name: "Alter",
   porps: ["gettingStarted"],
   components: {
-    ModalForm,
+    ModalForm
   },
   data() {
     return {
       formProps: {
         email: "evan@you.com",
-        password: "testing",
-      },
+        password: "testing"
+      }
     };
   },
-  // watch: {
-  //   gettingStarted: function (newRequ) {
-  //     if (newRequ == false) {
-  //       this.login = newRequ;
-  //     }
-  //   }
-  // },
   computed: {
     login: {
       get: function () {
@@ -48,8 +41,8 @@ export default {
       set: function (newValue) {
         this.$attrs.gettingStarted = newValue;
         this.$emit("update:getting-started", this.$attrs.gettingStarted);
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
