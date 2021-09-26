@@ -64,6 +64,8 @@ Vue.component("Navbar", require("@/components/Navbar.vue").default);
 
 Vue.config.productionTip = false;
 
+// Vue.use(initializeApp);
+
 new Vue({
   router,
   render: (h) => h(App),

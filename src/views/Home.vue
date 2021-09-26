@@ -20,7 +20,7 @@
       img-src="about-us.jpg"
       btn-one="Explore Products"
     ></hero>
-    <alter v-bind:gettingStarted.sync="loginRequest"></alter>
+    <login v-bind:gettingStarted.sync="loginRequest"></login>
   </section>
 </template>
 
@@ -28,8 +28,7 @@
 // @ is an alias to /src
 import Hero from "@/components/Hero.vue";
 import ProductsGallery from "@/sections/ProductsGallery.vue";
-// import Login from "@/components/Login.vue";
-import Alter from "@/components/Alter.vue";
+import Login from "@/components/Login.vue";
 
 export default {
   name: "Home",
@@ -41,10 +40,10 @@ export default {
   components: {
     Hero,
     ProductsGallery,
-    // Login,
-    Alter,
+    Login,
   },
-  methods: {
+
+  Loginmethods: {
     // getStarted(value) {
     //   this.loginResquest = value;
     // }
