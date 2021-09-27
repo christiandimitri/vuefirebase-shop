@@ -7,7 +7,7 @@
             <b-field label="Email">
               <b-input
                 type="email"
-                :value="email"
+                v-model="email"
                 placeholder="Your email"
                 required
               >
@@ -17,7 +17,8 @@
             <b-field label="Password">
               <b-input
                 type="password"
-                :value="password"
+                v-model="password"
+                @keyup.enter.native="login"
                 password-reveal
                 placeholder="Your password"
                 required
@@ -42,7 +43,12 @@
             </b-field>
 
             <b-field label="Password">
-              <b-input type="password" v-model="password" password-reveal>
+              <b-input
+                type="password"
+                @keyup.enter.native="register"
+                v-model="password"
+                password-reveal
+              >
               </b-input>
             </b-field>
 
@@ -94,7 +100,25 @@ export default {
           // ..
         });
     },
-    login() {},
+    login() {
+      fb.auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          this.$router.replace("admin");
+        })
+        .catch(function (error) {
+          {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            if (errorCode == "auth/wrong-password") {
+              alert("Wrong Password");
+            } else {
+              alert(errorMessage);
+            }
+            console.log(error);
+          }
+        });
+    },
   },
 };
 </script>
